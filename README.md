@@ -60,4 +60,12 @@ a magic field: containing the magic number <b>0x1BADB002</b>, to identify the he
 a flags field: We will not care about this field. We will simply set it to zero.
 a checksum field: the checksum field when added to the fields ‘magic’ and ‘flags’ must give zero.
 (the checksum : magic + flag + checksum should amount to zero)
+
+
+<h4>Keyboard support (basic keyboard driver)</h4>
+We communicate with I/O devices using I/O ports. 
+These ports are just specific address on the x86's I/O bus, nothing more.
+
+The read/write operations from these ports are accomplished using specifc instructions built into
+the processor.
 </p>
