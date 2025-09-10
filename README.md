@@ -45,4 +45,19 @@ Thus the kernel loads in 32-bit protected mode...
 
 <i>Note: in case of linux kernel, GRUB detects linux boot protocol and loads linux kernel in real 
 mode. Linux kernel makes the switch itselt to protected mode.</i>
+
+
+<h4>Grub & Multiboot</h4>
+There is a standard for loading various x86 kernels using a boot loader; called as <b>Multiboot specification.</b>
+
+GRUB will only load our kernel if it complies with the Multiboot spec.
+
+According to the spec, the kernel must contain a header (known as Multiboot header) within its first 8 KiloBytes.
+
+Further, This Multiboot header must contain 3 fields that are 4 byte aligned namely:
+
+a magic field: containing the magic number <b>0x1BADB002</b>, to identify the header.
+a flags field: We will not care about this field. We will simply set it to zero.
+a checksum field: the checksum field when added to the fields ‘magic’ and ‘flags’ must give zero.
+(the checksum : magic + flag + checksum should amount to zero)
 </p>
